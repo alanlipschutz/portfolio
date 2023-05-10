@@ -31,11 +31,13 @@ export default function About() {
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className='mdl:max-w-[600px] text-lg font-mono tracking-wide text-slate-200	'
+        className='mdl:max-w-[600px] text-xl font-mono tracking-wide text-slate-200	'
       >
         I'm an oleh chadash from Argentina who decided to come to Israel to
         change his career and his life.
-        <p>Now, I'm looking my next challenge as a full stack developer</p>
+        <p className='text-textGreen'>
+          I'm looking my next challenge as a full stack developer
+        </p>
       </motion.article>
       <motion.ol
         initial={{ y: 10, opacity: 0 }}
@@ -47,7 +49,7 @@ export default function About() {
           <li key={time.title}>
             <div className='flex-start flex items-center pt-2 md:block md:pt-0'>
               <div className='-ml-[5px] mr-3 h-[9px] w-[9px] rounded-full bg-neutral-300 dark:bg-neutral-500 md:-mt-[5px] md:ml-0 md:mr-0'></div>
-              <p className='mt-2 text-sm text-neutral-500 dark:text-neutral-300'>
+              <p className='mt-2 text-base text-slate-200	 dark:text-neutral-300'>
                 {time.year}
               </p>
             </div>
