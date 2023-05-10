@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -30,12 +28,12 @@ export default function Navbar() {
             className='hidden lg:inline-flex items-center gap-4'
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.1 }}
           >
             <motion.li
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.1, delay: 0.1 }}
+              transition={{ duration: 0.01, delay: 0.01 }}
             >
               <Link
                 href='#about'
@@ -106,7 +104,11 @@ export default function Navbar() {
                 <AiOutlineGithub className='text-3xl hover:-translate-y-2 transition-all duration-100' />
               </Link>
             </motion.li>
-            <a href='/assets/Alan_Lipschutz_CV.pdf' target='_blank'>
+            <a
+              rel='preload'
+              href='/assets/Alan_Lipschutz_CV.pdf'
+              target='_blank'
+            >
               <motion.button
                 className='rounded-md text-textGreen text-[1rem] border border-textGreen hover:bg-hoverColor duration-200 font-mono px-3'
                 initial={{ y: -10, opacity: 0 }}
@@ -119,7 +121,7 @@ export default function Navbar() {
           </motion.ul>
         </nav>
       </div>
-      <div className='lg:hidden bg-gray-700 p-4 rounded-xl absolute bottom-[50px] min-w-[325px] left-[50%] transform -translate-x-1/2 right-0 flex justify-between gap-5 items-center'>
+      <div className='lg:hidden bg-gray-700 p-4 rounded-xl absolute bottom-[0px] min-w-[325px] left-[50%] transform -translate-x-1/2 right-0 flex justify-between gap-5 items-center'>
         <Link href={'#home'}>
           <FaHome className='text-lg ' />
         </Link>

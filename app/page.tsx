@@ -11,7 +11,7 @@ export default function Home() {
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
+        transition={{ delay: 0.1 }}
         className='vh-[30vh] mx-auto p-4'
       >
         <About />
