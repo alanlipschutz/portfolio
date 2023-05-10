@@ -26,10 +26,7 @@ export default function Skills() {
     'Docker',
   ];
   return (
-    <div
-      id='#skills'
-      className='max-w-containerSmall mx-auto py-10 mdl:py-24 flex flex-col gap-4 lgl:gap-8 mdl:px-10 xl:px-4 '
-    >
+    <>
       <h3 className='text-textGreen text-3xl text-start font-mono font-bold'>
         Skills
       </h3>
@@ -71,6 +68,6 @@ export default function Skills() {
           </ul>
         </div>
       </section>
-    </div>
+    </>
   );
 }
