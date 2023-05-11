@@ -6,12 +6,41 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import { useRef, useState } from 'react';
 
 export default function Home() {
+  const [activeSection, setActiveSection] = useState('');
+
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+
+  const handleNavClick = (sectionId: string) => {
+    setActiveSection(sectionId);
+    switch (sectionId) {
+      case 'about':
+        aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case 'skills':
+        skillsRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case 'projects':
+        projectsRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case 'contact':
+        contactRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      default:
+        break;
+    }
+  };
   return (
     <main className='font-bodyFont w-full h-screen bg-bodyColor text-textLight  overflow-x-hidden overflow-y-scroll'>
-      <Navbar />
+      <Navbar moveToSection={handleNavClick} />
       <motion.section
+        ref={aboutRef}
+        id='#about'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.1 }}
@@ -20,6 +49,7 @@ export default function Home() {
         <About />
       </motion.section>
       <motion.section
+        ref={skillsRef}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
@@ -29,6 +59,7 @@ export default function Home() {
         <Skills />
       </motion.section>
       <motion.section
+        ref={projectsRef}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
@@ -38,6 +69,7 @@ export default function Home() {
         <Projects />
       </motion.section>
       <motion.section
+        ref={contactRef}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4 }}

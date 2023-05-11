@@ -56,12 +56,12 @@ export default function Projects() {
             key={project.title}
             className={`flex flex-col ${
               index % 2 === 0 ? 'xl:flex-row' : 'xl:flex-row-reverse'
-            } gap-6 cursor-pointer`}
+            } gap-6`}
           >
             <Link
               href={'https://github.com/alanlipschutz/petAdoptionITC'}
               target='_blank'
-              className='w-full xl:w-1/2 h-auto relative group'
+              className='w-full xl:w-1/2 h-auto relative group cursor-pointer'
             >
               <Image
                 className='w-full h-full object-contain'

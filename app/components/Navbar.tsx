@@ -11,17 +11,21 @@ import {
   AiOutlineGithub,
 } from 'react-icons/ai';
 
-export default function Navbar() {
+interface Props {
+  moveToSection: (section: string) => void;
+}
+
+export default function Navbar({ moveToSection }: Props) {
   return (
     <>
       <div className='w-full shadow-navBarShadow h-20 lg:h-[7vh]  sticky top-0 z-50 bg-bodyColor px-4 flex justify-between items-center '>
         <div className='flex items-center text-lg cursor-pointer'>
-          <Link href='#home'>
+          <a href='#home' onClick={() => moveToSection('about')}>
             <h1 className='overflow-hidden whitespace-nowrap font-mono text-xl font-bold animate-typing'>
               Alan Lipschutz
             </h1>
             <h2 className='font-mono'>Fullstack developer</h2>
-          </Link>
+          </a>
         </div>
         <nav className='lg:block'>
           <motion.ul
@@ -35,74 +39,78 @@ export default function Navbar() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.01, delay: 0.01 }}
             >
-              <Link
+              <a
                 href='#about'
                 className='mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200'
+                onClick={() => moveToSection('about')}
               >
                 About
-              </Link>
+              </a>
             </motion.li>
             <motion.li
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.1, delay: 0.2 }}
             >
-              <Link
+              <a
                 href='#skills'
                 className='mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200'
+                onClick={() => moveToSection('skills')}
               >
                 Skills
-              </Link>
+              </a>
             </motion.li>
             <motion.li
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.1, delay: 0.3 }}
             >
-              <Link
-                href='#portfolio'
+              <a
+                href='#projects'
                 className='mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200'
+                onClick={() => moveToSection('projects')}
               >
-                Portfolio
-              </Link>
+                Projects
+              </a>
             </motion.li>
             <motion.li
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.1, delay: 0.4 }}
             >
-              <Link
+              <a
                 href='#contact'
                 className='mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200'
+                onClick={() => moveToSection('contact')}
               >
                 Contact
-              </Link>
+              </a>
             </motion.li>
             <motion.li
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.1, delay: 0.5 }}
             >
-              <Link
+              <a
                 href='https://www.linkedin.com/in/alanlipschutz/'
                 target='_blank'
                 className='bg-hoverColor hover:text-textGreen cursor-pointer hover:-translate-y-2 transition-all duration-300'
               >
                 <AiFillLinkedin className='text-3xl hover:-translate-y-2 transition-all duration-100' />
-              </Link>
+              </a>
             </motion.li>
             <motion.li
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.1, delay: 0.6 }}
             >
-              <Link
+              <a
                 href='https://github.com/alanlipschutz/'
                 target='_blank2'
                 className='bg-hoverColor hover:text-textGreen cursor-pointer '
               >
                 <AiOutlineGithub className='text-3xl hover:-translate-y-2 transition-all duration-100' />
-              </Link>
+              </a>
             </motion.li>
             <a
               rel='preload'
@@ -121,29 +129,26 @@ export default function Navbar() {
           </motion.ul>
         </nav>
       </div>
-      <div className='lg:hidden bg-gray-700 p-4 rounded-xl absolute bottom-[0px] min-w-[325px] left-[50%] transform -translate-x-1/2 right-0 flex justify-between gap-5 items-center'>
-        <Link href={'#home'}>
+      <div className='lg:hidden bg-gray-700 p-4 rounded-xl absolute z-10 bottom-[0px] min-w-[325px] left-[50%] transform -translate-x-1/2 right-0 flex justify-between gap-5 items-center'>
+        <a href={'#about'} onClick={() => moveToSection('about')}>
           <FaHome className='text-lg ' />
-        </Link>
-        <Link href={'#about'}>
-          <AiOutlineUser className='text-lg ' />
-        </Link>
-        <Link href={'#skills'}>
+        </a>
+        <a href={'#skills'} onClick={() => moveToSection('skills')}>
           <AiOutlineOrderedList className='text-lg  ' />
-        </Link>
+        </a>
 
-        <Link href={'#portfolio'}>
+        <a href={'#projects'} onClick={() => moveToSection('projects')}>
           <AiFillFolderOpen className='text-lg ' />
-        </Link>
-        <Link href={'#Contact'}>
+        </a>
+        <a href={'#Contact'} onClick={() => moveToSection('contact')}>
           <AiOutlineMail className='text-lg ' />
-        </Link>
-        <Link href='https://www.linkedin.com/in/alanlipschutz/' target='_blank'>
+        </a>
+        <a href='https://www.linkedin.com/in/alanlipschutz/' target='_blank'>
           <AiFillLinkedin className='text-lg' />
-        </Link>
-        <Link href='https://github.com/alanlipschutz/' target='_blank2'>
+        </a>
+        <a href='https://github.com/alanlipschutz/' target='_blank2'>
           <AiOutlineGithub className='text-lg' />
-        </Link>
+        </a>
       </div>
     </>
   );
