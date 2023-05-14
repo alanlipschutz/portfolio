@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
 import Navbar from './components/Navbar';
@@ -10,7 +11,7 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function Home() {
   const hrefPath = window.location.href.split('#')[1];
-  const [activeSection, setActiveSection] = useState(hrefPath || '');
+  const [activeSection, setActiveSection] = useState(hrefPath || 'about');
   const loadFeatures = () =>
     import('./components/features').then((res) => res.default);
 
@@ -43,6 +44,46 @@ export default function Home() {
         break;
     }
   };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id.split('#')[1]);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (aboutRef.current) {
+      observer.observe(aboutRef.current);
+    }
+    if (skillsRef.current) {
+      observer.observe(skillsRef.current);
+    }
+    if (projectsRef.current) {
+      observer.observe(projectsRef.current);
+    }
+    if (contactRef.current) {
+      observer.observe(contactRef.current);
+    }
+
+    return () => {
+      if (aboutRef.current) {
+        observer.unobserve(aboutRef.current);
+      }
+      if (skillsRef.current) {
+        observer.unobserve(skillsRef.current);
+      }
+      if (projectsRef.current) {
+        observer.unobserve(projectsRef.current);
+      }
+      if (contactRef.current) {
+        observer.unobserve(contactRef.current);
+      }
+    };
+  }, []);
+
   return (
     <LazyMotion strict features={loadFeatures}>
       <main className='font-bodyFont w-full h-screen bg-bodyColor text-textLight  overflow-x-hidden overflow-y-scroll'>
