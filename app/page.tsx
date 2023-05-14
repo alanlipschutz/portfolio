@@ -6,10 +6,12 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState(
+    window.location.href.split('#')[1]
+  );
 
   const aboutRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
@@ -37,7 +39,7 @@ export default function Home() {
   };
   return (
     <main className='font-bodyFont w-full h-screen bg-bodyColor text-textLight  overflow-x-hidden overflow-y-scroll'>
-      <Navbar moveToSection={handleNavClick} />
+      <Navbar moveToSection={handleNavClick} activeSection={activeSection} />
       <motion.section
         ref={aboutRef}
         id='#about'

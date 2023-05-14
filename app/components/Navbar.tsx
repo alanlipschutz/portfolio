@@ -3,7 +3,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaHome } from 'react-icons/fa';
 import {
-  AiOutlineUser,
   AiOutlineOrderedList,
   AiFillFolderOpen,
   AiOutlineMail,
@@ -13,9 +12,10 @@ import {
 
 interface Props {
   moveToSection: (section: string) => void;
+  activeSection: string;
 }
 
-export default function Navbar({ moveToSection }: Props) {
+export default function Navbar({ moveToSection, activeSection }: Props) {
   return (
     <>
       <div className='w-full shadow-navBarShadow h-20 lg:h-[7vh]  sticky top-0 z-50 bg-bodyColor px-4 flex justify-between items-center '>
@@ -41,7 +41,9 @@ export default function Navbar({ moveToSection }: Props) {
             >
               <a
                 href='#about'
-                className='mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200'
+                className={`mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200 ${
+                  activeSection === 'about' || '' ? 'text-blue-500' : ''
+                } `}
                 onClick={() => moveToSection('about')}
               >
                 About
@@ -54,7 +56,9 @@ export default function Navbar({ moveToSection }: Props) {
             >
               <a
                 href='#skills'
-                className='mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200'
+                className={`mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200 ${
+                  activeSection === 'skills' ? 'text-blue-500' : ''
+                } `}
                 onClick={() => moveToSection('skills')}
               >
                 Skills
@@ -67,7 +71,9 @@ export default function Navbar({ moveToSection }: Props) {
             >
               <a
                 href='#projects'
-                className='mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200'
+                className={`mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200 ${
+                  activeSection === 'projects' ? 'text-blue-500' : ''
+                } `}
                 onClick={() => moveToSection('projects')}
               >
                 Projects
@@ -80,7 +86,9 @@ export default function Navbar({ moveToSection }: Props) {
             >
               <a
                 href='#contact'
-                className='mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200'
+                className={`mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200 ${
+                  activeSection === 'contact' ? 'text-blue-500' : ''
+                } `}
                 onClick={() => moveToSection('contact')}
               >
                 Contact
@@ -130,7 +138,11 @@ export default function Navbar({ moveToSection }: Props) {
         </nav>
       </div>
       <div className='lg:hidden bg-gray-700 p-4 rounded-xl absolute z-10 bottom-[0px] min-w-[325px] left-[50%] transform -translate-x-1/2 right-0 flex justify-between gap-5 items-center'>
-        <a href={'#about'} onClick={() => moveToSection('about')}>
+        <a
+          href={'#about'}
+          onClick={() => moveToSection('about')}
+          className='hover:bg-gray-500 p-2 rounded-full duration-200'
+        >
           <FaHome className='text-lg ' />
         </a>
         <a href={'#skills'} onClick={() => moveToSection('skills')}>
