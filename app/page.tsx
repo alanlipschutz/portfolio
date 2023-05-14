@@ -9,9 +9,12 @@ import Contact from './components/Contact';
 import { useEffect, useRef, useState } from 'react';
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState(
-    window.location.href.split('#')[1]
-  );
+  const hrefPath = window.location.href.split('#')[1];
+  const [activeSection, setActiveSection] = useState(hrefPath || '');
+
+  useEffect(() => {
+    handleNavClick(hrefPath);
+  }, []);
 
   const aboutRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
