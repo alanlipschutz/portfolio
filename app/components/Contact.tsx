@@ -34,7 +34,12 @@ export default function Contact() {
             </li>
           </a>
         </ul>
-        <a rel='preload' href='/assets/Alan_Lipschutz_CV.pdf' target='_blank'>
+        <a
+          rel='preload'
+          href='/assets/Alan_Lipschutz_CV.pdf'
+          target='_blank'
+          download={true}
+        >
           <button className='rounded-md text-textGreen text-[2rem] border border-textGreen hover:bg-hoverColor duration-200 font-mono px-3 h-[150px]'>
             <p>Download my CV here!</p>
           </button>

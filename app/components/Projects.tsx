@@ -67,6 +67,7 @@ export default function Projects() {
                 className='w-full h-full object-contain'
                 src={project.src}
                 alt={project.title}
+                priority
               />
             </Link>
             <div
