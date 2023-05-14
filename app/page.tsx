@@ -14,6 +14,7 @@ export default function Home() {
 
   useEffect(() => {
     handleNavClick(hrefPath);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const aboutRef = useRef<HTMLDivElement>(null);
