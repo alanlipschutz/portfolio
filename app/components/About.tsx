@@ -3,9 +3,9 @@ import { LazyMotion, m } from 'framer-motion';
 import React from 'react';
 
 const timeline = [
-  { year: '2015-2016', title: 'Analyst - BH' },
-  { year: '2016-2018', title: 'Market risk analyst - BH' },
-  { year: '2018-2022', title: 'EM sales trader - BH' },
+  { year: '2015-2016', title: 'Analyst' },
+  { year: '2016-2018', title: 'Market risk analyst' },
+  { year: '2018-2022', title: 'EM sales trader' },
   { year: '2022-2022', title: 'ITC full stack developer bootcamp, Israel' },
   { year: '04/01/2023', title: 'Made Aliyah', alyah: 'text-textGreen' },
   { year: '2022-2023', title: 'Fullstack developer, Synamedia' },
@@ -30,7 +30,7 @@ export default function About() {
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className='mdl:max-w-[600px] text-xl font-mono tracking-wide text-slate-200	'
+        className='mdl:max-w-[600px] text-xl font-mono tracking-wide text-slate-200	text-justify'
       >
         <p className='text-textGreen'>
           I'm looking for my next challenge as a full stack developer.
@@ -47,7 +47,7 @@ export default function About() {
       >
         {timeline.map((time) => (
           <li key={time.title}>
-            <div className='flex-start flex items-center pt-2 md:block md:pt-0'>
+            <div className='flex items-center pt-2 md:block md:pt-0 min-w-[100px]'>
               <div className='-ml-[5px] mr-3 h-[9px] w-[9px] rounded-full bg-neutral-300 dark:bg-neutral-500 md:-mt-[5px] md:ml-0 md:mr-0'></div>
               <p className='mt-2 text-base text-slate-200	 dark:text-neutral-300'>
                 {time.year}
@@ -55,7 +55,7 @@ export default function About() {
             </div>
             <div className='ml-4 mt-2 pb-5 md:ml-0'>
               <h4
-                className={`mb-1.5 text-xl font-semibold ${
+                className={`mb-1.5 text-xl font-semibold font-mono ${
                   time.alyah && time.alyah
                 }`}
               >
