@@ -24,8 +24,8 @@ module.exports = {
         xl: '1280px',
       },
       fontFamily: {
-        bodyFont: ['Montserrat', 'sans-serif'],
-        titleFont: ['Montserrat', 'sans-serif'],
+        bodyFont: ['font-mono', 'sans-serif'],
+        titleFont: ['font-mono', 'sans-serif'],
       },
       boxShadow: {
         navBarShadow: '0 10px 30px -10px rgba(2,12,27,0.7)',

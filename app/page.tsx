@@ -10,13 +10,15 @@ import Contact from './components/Contact';
 import { useEffect, useRef, useState } from 'react';
 
 export default function Home() {
-  const hrefPath = window.location.href.split('#')[1];
-  const [activeSection, setActiveSection] = useState(hrefPath || 'about');
+  const [activeSection, setActiveSection] = useState('about');
   const loadFeatures = () =>
     import('./components/features').then((res) => res.default);
 
   useEffect(() => {
-    handleNavClick(hrefPath);
+    const hrefPath = window.location.href.split('#')[1];
+    setActiveSection(hrefPath);
+    handleNavClick(hrefPath ? hrefPath : 'about');
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -41,52 +43,14 @@ export default function Home() {
         contactRef.current?.scrollIntoView({ behavior: 'smooth' });
         break;
       default:
+        aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
         break;
     }
   };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id.split('#')[1]);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (aboutRef.current) {
-      observer.observe(aboutRef.current);
-    }
-    if (skillsRef.current) {
-      observer.observe(skillsRef.current);
-    }
-    if (projectsRef.current) {
-      observer.observe(projectsRef.current);
-    }
-    if (contactRef.current) {
-      observer.observe(contactRef.current);
-    }
-
-    return () => {
-      if (aboutRef.current) {
-        observer.unobserve(aboutRef.current);
-      }
-      if (skillsRef.current) {
-        observer.unobserve(skillsRef.current);
-      }
-      if (projectsRef.current) {
-        observer.unobserve(projectsRef.current);
-      }
-      if (contactRef.current) {
-        observer.unobserve(contactRef.current);
-      }
-    };
-  }, []);
-
   return (
     <LazyMotion strict features={loadFeatures}>
-      <main className='font-bodyFont w-full h-screen bg-bodyColor text-textLight  overflow-x-hidden overflow-y-scroll'>
+      <main className='w-full h-screen bg-bodyColor text-textLight  overflow-x-hidden overflow-y-scroll'>
         <Navbar moveToSection={handleNavClick} activeSection={activeSection} />
         <m.section
           ref={aboutRef}
