@@ -34,7 +34,7 @@ export default function Navbar({ activeSection }: Props) {
     <>
       <LazyMotion strict features={loadFeatures}>
         <div className='w-full shadow-navBarShadow h-20 lg:h-[7vh]  sticky top-0 z-50 bg-bodyColor px-4 flex justify-between items-center '>
-          <div className='flex items-center text-lg cursor-pointer'>
+          <div className='flex items-center text-lg'>
             <Link href='#about' onClick={handleScroll}>
               <h1 className='overflow-hidden whitespace-nowrap font-mono text-xl font-bold animate-typing'>
                 Alan Lipschutz
@@ -54,60 +54,61 @@ export default function Navbar({ activeSection }: Props) {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.02, delay: 0.01 }}
               >
-                <Link
-                  href={'#about'}
+                <a
+                  href='#about'
                   onClick={handleScroll}
-                  className={`mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200 ${
+                  className={`mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200 cursor-pointer ${
                     activeSection === 'about' || '' ? 'text-blue-500' : ''
                   } `}
                 >
                   About
-                </Link>
+                </a>
               </m.li>
               <m.li
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.02, delay: 0.02 }}
               >
-                <Link
-                  href={'#skills'}
+                <a
+                  href='#skills'
                   onClick={handleScroll}
-                  className={`mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200 ${
+                  className={`mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200 cursor-pointer ${
                     activeSection === 'skills' ? 'text-blue-500' : ''
                   } `}
                 >
                   Skills
-                </Link>
+                </a>
               </m.li>
               <m.li
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.02, delay: 0.03 }}
               >
-                <Link
+                <a
                   href={'#projects'}
                   onClick={handleScroll}
-                  className={`mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200 ${
+                  className={`mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200 cursor-pointer ${
                     activeSection === 'projects' ? 'text-blue-500' : ''
                   } `}
                 >
                   Projects
-                </Link>
+                </a>
               </m.li>
               <m.li
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.02, delay: 0.04 }}
+                className='cursor-pointer'
               >
-                <Link
+                <a
                   onClick={handleScroll}
                   href={'#contact'}
-                  className={`mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200 ${
+                  className={`mx-4 font-mono font-bold text-lg hover:text-blue-500 duration-200 cursor-pointer ${
                     activeSection === 'contact' ? 'text-blue-500' : ''
                   } `}
                 >
                   Contact
-                </Link>
+                </a>
               </m.li>
               <m.li
                 initial={{ y: -10, opacity: 0 }}
@@ -156,7 +157,7 @@ export default function Navbar({ activeSection }: Props) {
       <div className='lg:hidden bg-gray-700 p-4 rounded-xl absolute z-10 bottom-[0px] min-w-[325px] left-[50%] transform -translate-x-1/2 right-0 flex justify-between gap-5 items-center'>
         <a
           href={'#about'}
-          className={`hover:bg-gray-500 p-2 rounded-full duration-200 ${
+          className={` mdl:hover:bg-gray-500 p-2 rounded-full duration-200 ${
             activeSection === 'about' || '' ? 'bg-gray-500' : ''
           }`}
           onClick={handleScroll}
@@ -194,16 +195,16 @@ export default function Navbar({ activeSection }: Props) {
         <a
           href='https://www.linkedin.com/in/alanlipschutz/'
           target='_blank'
-          className='hover:bg-gray-500 p-2 rounded-full duration-200'
+          className='hover:bg-gray-500 p-2 rounded-full  hover:text-textGreen hover:-translate-y-2 transition-all duration-100'
         >
-          <AiFillLinkedin className='text-lg' />
+          <AiFillLinkedin className='text-lg ' />
         </a>
         <a
           href='https://github.com/alanlipschutz/'
           target='_blank'
-          className='hover:bg-gray-500 p-2 rounded-full duration-200'
+          className='hover:bg-gray-500 p-2 rounded-full  hover:text-textGreen hover:-translate-y-2 transition-all duration-100'
         >
-          <AiOutlineGithub className='text-lg' />
+          <AiOutlineGithub className='text-lg ' />
         </a>
       </div>
     </>

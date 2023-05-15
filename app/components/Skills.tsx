@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import Image from 'next/image';
 import React from 'react';
 import { AiFillThunderbolt } from 'react-icons/ai';
 
@@ -30,7 +31,7 @@ export default function Skills() {
         Skills
       </h3>
       <p className='text-lg font-mono text-zinc-300 max-w-[300]'>
-        I've been working with the next techonologies
+        In the last year, I've been working with the next techonologies
       </p>
       <section className='flex flex-col mdl:flex-row justify-evenly items-center gap-6'>
         <div className='border border-solid border-textGreen rounded-md p-4'>
