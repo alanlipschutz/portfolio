@@ -9,7 +9,7 @@ export default function Contact() {
       </h3>
       <div className='flex items-center justify-between flex-col mdl:flex-row gap-5'>
         <ul className='max-w-containerSmall flex flex-col justify-start gap-3  '>
-          <a href='mailto:alanelipschutz@gmail.com'>
+          <a href={`mailto:${process.env.EMAIL}`}>
             <li className='flex items-center gap-4'>
               <FaTelegramPlane className='text-textGreen' />
               <span className='text-xl mdl:text-2xl font-mono'>
@@ -17,7 +17,7 @@ export default function Contact() {
               </span>
             </li>
           </a>
-          <a href='https://wa.me/972584164863' target='_blank'>
+          <a href={`https://wa.me/${process.env.PHONE}`} target='_blank'>
             <li className='flex items-center gap-4'>
               <FaWhatsapp className='text-textGreen' />
               <span className='text-xl mdl:text-2xl font-mono'>
@@ -25,7 +25,7 @@ export default function Contact() {
               </span>
             </li>
           </a>
-          <a href='tel:+972584164863'>
+          <a href={`tel:+${process.env.PHONE}`}>
             <li className='flex items-center gap-4'>
               <FaMobileAlt className='text-textGreen' />
               <span className='text-xl mdl:text-2xl font-mono'>
