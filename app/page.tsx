@@ -41,7 +41,6 @@ export default function Home() {
       }
       setActiveSection(activeSection);
       setScrolledSections(scrolledSections);
-      console.log(scrolledSections);
     };
 
     if (mainPage) {
