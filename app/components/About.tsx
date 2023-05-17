@@ -30,30 +30,32 @@ export default function About() {
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className='mdl:max-w-[600px] text-xl font-mono tracking-wide text-slate-200	text-justify'
+        className='mdl:max-w-[600px] text-xl font-mono tracking-wide text-slate-200 text-start sm:m-2 sml:m-2'
       >
-        <p className='text-textGreen'>
-          I'm looking for my next challenge as a full stack developer.
+        <p className='text-textGreen mb-2'>
+          I'm on the lookout for my next challenge as a full stack developer.
         </p>
-        My mission is to code, learn and improve. As a former Economist, I
-        worked several years in finance, but once I changed my career to code,
-        never looked back!
+        As a former Economist with several years of experience in finance, I
+        decided to change my career and pursue coding. Since then, I've been
+        dedicated to coding, constantly learning, and striving for improvement.
+        Coding is my true passion, and I'm excited to tackle new projects and
+        push boundaries.
       </m.article>
       <m.ol
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className='border-l border-neutral-300 dark:border-neutral-500 md:flex md:justify-start md:gap-6 md:border-l-0 md:border-t relative'
+        className='border-l border-neutral-300 dark:border-neutral-500 flex flex-col-reverse mdl:flex-row mdl:justify-start mdl:gap-6 mdl:border-l-0 mdl:border-t relative m-2'
       >
         {timeline.map((time) => (
           <li key={time.title}>
-            <div className='flex items-center pt-2 md:block md:pt-0 min-w-[100px]'>
-              <div className='-ml-[5px] mr-3 h-[9px] w-[9px] rounded-full bg-neutral-300 dark:bg-neutral-500 md:-mt-[5px] md:ml-0 md:mr-0'></div>
+            <div className='flex items-center pt-2 mdl:block mdl:pt-0 min-w-[100px]'>
+              <div className='-ml-[5px] mr-3 h-[9px] w-[9px] rounded-full bg-neutral-300 dark:bg-neutral-500 mdl:-mt-[5px] mdl:ml-0 mdl:mr-0'></div>
               <p className='mt-2 text-base text-slate-200	 dark:text-neutral-300'>
                 {time.year}
               </p>
             </div>
-            <div className='ml-4 mt-2 pb-5 md:ml-0'>
+            <div className='ml-4 mt-2 pb-5 mdl:ml-0'>
               <h4
                 className={`mb-1.5 text-xl font-semibold font-mono ${
                   time.alyah && time.alyah

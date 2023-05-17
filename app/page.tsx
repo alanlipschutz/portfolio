@@ -98,7 +98,7 @@ export default function Home() {
         </m.section>
         <m.section
           id='contact'
-          className={`p-4 transform opacity-0 transition-transform duration-1000 max-w-containerSmall mx-auto py-10 mdl:py-24 flex flex-col gap-4 lgl:gap-8 mdl:px-10 xl:px-4 `}
+          className={`p-4 transform opacity-0 transition-transform duration-1000 max-w-containerSmall mx-auto sm:mb-4 py-10 mdl:py-24 flex flex-col gap-4 lgl:gap-8 mdl:px-10 xl:px-4 `}
           initial={{ opacity: 0, translateY: 30 }}
           animate={{
             opacity: scrolledSections.includes('projects') ? 1 : 0,
